@@ -6,4 +6,4 @@ This project is a homework assignment to teach how to get PyCharm setup with Doc
 # Postman Screenshot
 [Postman Request Output]()
 # SQL Data Screenshot
-[PyCharm Data Query]()
+[PyCharm Data Query](screenshots/dockerPySQL ss1.JPG)
