@@ -4,6 +4,6 @@ This project is a homework assignment to teach how to get PyCharm setup with Doc
 [Download Assignment Here](assignment/PPFSQL-Homework.pdf)  
 [View Assignment Video Here](https://www.youtube.com/watch?v=QbMWNgrfAFg)
 # Postman Screenshot
-[Postman Request Output](screenshots/dockerPySQLflask ss2.JPG)
+![Postman Request Output](screenshots/dockerPySQLflaskss2.JPG)
 # SQL Data Screenshot
-[PyCharm Data Query](screenshots/dockerPySQL ss1.JPG)
+![PyCharm Data Query](screenshots/dockerPySQLss1.JPG)
