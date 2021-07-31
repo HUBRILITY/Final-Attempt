@@ -13,12 +13,12 @@ def cities_import() -> List[Dict]:
         'password': 'root',
         'host': 'db',
         'port': '3306',
-        'database': 'citiesData'
+        'database': 'hwData'
     }
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor(dictionary=True)
 
-    cursor.execute('SELECT * FROM tblCitiesImport')
+    cursor.execute('SELECT * FROM tblhwDataImport')
     result = cursor.fetchall()
 
     cursor.close()
