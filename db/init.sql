@@ -2,12 +2,12 @@ CREATE DATABASE hwData;
 use hwData;
 
 CREATE TABLE IF NOT EXISTS tbl_hwImport (
-    `fldIndex` NUMERIC(3),
-    `fldHeight(Inches)` NUMERIC(2, 2),
-    `fldWeight(Pounds)` NUMERIC(3, 2)
+    `fldIndex` NUMERIC(3, 0),
+    `fldHeight(Inches)` NUMERIC(5, 2),
+    `fldWeight(Pounds)` NUMERIC(6, 2)
 
 );
-INSERT INTO tbl_hwImport VALUES
+INSERT INTO tbl_hwImport (fldIndex, `fldHeight(Inches)`, `fldWeight(Pounds)`) VALUES
 (1,65.78,112.99),
 (2,71.52,136.49),
 (3,69.4,153.03),

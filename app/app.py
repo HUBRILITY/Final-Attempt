@@ -7,7 +7,7 @@ from flask import render_template
 app = Flask(__name__)
 
 
-def cities_import() -> List[Dict]:
+def hw_import() -> List[Dict]:
     config = {
         'user': 'root',
         'password': 'root',
@@ -18,7 +18,7 @@ def cities_import() -> List[Dict]:
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor(dictionary=True)
 
-    cursor.execute('SELECT * FROM tblhwDataImport')
+    cursor.execute('SELECT * FROM tbl_hwImport')
     result = cursor.fetchall()
 
     cursor.close()
@@ -29,14 +29,14 @@ def cities_import() -> List[Dict]:
 
 @app.route('/')
 def index():
-    user = {'username': 'Miguel'}
-    cities_data = cities_import()
+    user = {'Guest'}
+    hw_data = hw_import()
 
-    return render_template('index.html', title='Home', user=user, cities=cities_data)
+    return render_template('index.html', title='Home', user=user, hw_data=hw_import)
 
-@app.route('/api/cities')
-def cities() -> str:
-    js = json.dumps(cities_import())
+@app.route('/api/hw')
+def hw() -> str:
+    js = json.dumps(hw_import())
     resp = Response(js, status=200, mimetype='application/json')
     return resp
 
