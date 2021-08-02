@@ -24,7 +24,7 @@ def index():
     result = cursor.fetchall()
     return render_template('index.html', title='Home', user=user, hwData=result)
 
-app.route('/view/<int:hwData_Index>, methods=['GET'])
+app.route('/view/<int:hwData_Index>, methods=['GET']
 def record_view(hwData_Index):
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT' * FROM tbl_hwImport WHERE fldIndex=%s', hwData_fldIndex')
@@ -44,6 +44,27 @@ def form_update_post(hwData_Index):
     inputData = (request.form.get('fldIndex'), request.form.get('fldHeight(Inches)'), request.form.get('fldWeight(Pounds)'), hwData_Index)
     sql_update_query = """UPDATE tbl_hwImport t SET t.fldIndex = %s, t.`fldHeight(Inches)`= %s, t.`fldWeight(Pounds)` = %s """
     cursor.execute(sql_update_query, inputData)
+1   mysql.get_db().commit()
+    return redirect("/", code=302)
+
+app.route('/hwData/new', methods=['GET'])
+def form_insert_get():
+    return render_template('new.html', title='New HW Form')
+
+app.route('/view/<int:Index>, methods=['POST'])
+def form_insert_post(hwData_Index):
+    cursor = mysql.get_db().cursor()
+    inputData = (request.form.get('fldIndex'), request.form.get('fldHeight(Inches)'), request.form.get('fldWeight(Pounds)'))
+    sql_insert_query = """INSERT INTO tbl_hwImport (fldIndex,'fldHeight(Inches)','fldWeight(Pounds)') VALUES (%s, %s, %s) """
+    cursor.execute(sql_insert_query, inputData)
+1   mysql.get_db().commit()
+    return redirect("/", code=302)
+
+app.route('/view/<int:Index>, methods=['POST'])
+def form_delete_post(hwData_Index):
+    cursor = mysql.get_db().cursor()
+    sql_delete_query = """DELETE FROM tbl_hwImport WHERE fldIndex =%s"""
+    cursor.execute(sql_delete_query, inputData)
 1   mysql.get_db().commit()
     return redirect("/", code=302)
 
