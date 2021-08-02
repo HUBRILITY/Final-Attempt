@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card" class="m-5 p-2">
+    <h5 class="card-title">{{ hwData.fldIndex }} - {{ hwData.fldWeight(Pounds) }}</h5>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Index: {{ hwData.fldIndex }}</li>
+        <li class="list-group-item">Height(Inches): {{ hwData.fldHeight(Inches) }}</li>
+        <li class="list-group-item">Weight(Pounds): {{ hwData.fldWeight(Pounds) }}</li>
+    </ul>
+    <div class="card-body">
+        <a href="/edit/{{hwData.Index}}" class="card-link btn btn-primary">edit</a>
+    </div>
+</div>
+<form action="/delete/{{hwData.Index}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
+
+
+{% endblock %}
