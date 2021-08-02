@@ -4,7 +4,8 @@ use hwData;
 CREATE TABLE IF NOT EXISTS tbl_hwImport (
     `fldIndex` NUMERIC(3, 0),
     `fldHeight(Inches)` NUMERIC(5, 2),
-    `fldWeight(Pounds)` NUMERIC(6, 2)
+    `fldWeight(Pounds)` NUMERIC(6, 2),
+    PRIMARY KEY ('fldIndex')
 
 );
 INSERT INTO tbl_hwImport (fldIndex, `fldHeight(Inches)`, `fldWeight(Pounds)`) VALUES
