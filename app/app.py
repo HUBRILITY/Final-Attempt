@@ -22,11 +22,30 @@ def index():
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM tbl_hwImport')
     result = cursor.fetchall()
-    return render_template('index.html', title='Home', user=user, hw=result)
+    return render_template('index.html', title='Home', user=user, hwData=result)
+
+app.route('/view/<int:hwData_Index>, methods=['GET'])
+def record_view(hwData_Index):
+    cursor = mysql.get_db().cursor()
+    cursor.execute('SELECT' * FROM tbl_hwImport WHERE fldIndex=%s', hwData_fldIndex')
+1   result = cursor.fetchall()
+    return render_template('view.html', title='View Form', height=result[0])
 
 app.route('/view/<int:Index>, methods=['GET'])
-def record_view(Index))
+def form_edit_get(hwData_Index):
+    cursor = mysql.get_db().cursor()
+    cursor.execute('SELECT' * FROM tbl_hwImport WHERE fldIndex=%s', hwData_fldIndex')
+1   result = cursor.fetchall()
+    return render_template('edit.html', title='Edit Form', height=result[0])
 
+app.route('/view/<int:Index>, methods=['POST'])
+def form_update_post(hwData_Index):
+    cursor = mysql.get_db().cursor()
+    inputData = (request.form.get('fldIndex'), request.form.get('fldHeight(Inches)'), request.form.get('fldWeight(Pounds)'), hwData_Index)
+    sql_update_query = """UPDATE tbl_hwImport t SET t.fldIndex = %s, t.`fldHeight(Inches)`= %s, t.`fldWeight(Pounds)` = %s """
+    cursor.execute(sql_update_query, inputData)
+1   mysql.get_db().commit()
+    return redirect("/", code=302)
 
 def hw_import() -> List[Dict]:
     config = {
