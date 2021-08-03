@@ -6,15 +6,15 @@
         <th scope="col">Index</th>
         <th scope="col">Height(Inches)</th>
         <th scope="col">Weight(Pounds)</th>
-
     </tr>
     </thead>
     <tbody>
-    {% for city in cities %}
+    {% for Index in hwData %}
     <tr>
-        <td>{{ city.fldName }}</td>
-        <td>{{ city.fldLat }}</td>
-        <td>{{ city.fldLong }}</td>
+        <td><a href="view/{{hwData}}">{{ hwData.fldIndex }}</a></td>
+        <td>{{ hwData.fldIndex }}</td>
+        <td>{{ hwData.fldHeight(Inches) }}</td>
+        <td>{{ hwData.fldWeight(Pounds) }}</td>
 
     </tr>
     {% endfor %}

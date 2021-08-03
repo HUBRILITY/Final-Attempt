@@ -20,14 +20,14 @@ mysql.init_app(app)
 def index():
     user = {'username': 'hw project'}
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT * FROM tbl_hwImport')
+    cursor.execute('SELECT * FROM tblHW WHERE Index=%')
     result = cursor.fetchall()
     return render_template('index.html', title='Home', user=user, hwData=result)
 
-app.route('/view/<int:hwData_Index>, methods=['GET']
+app.route('/view/<int:fldIndex>, methods=['GET']
 def record_view(hwData_Index):
     cursor = mysql.get_db().cursor()
-    cursor.execute('SELECT' * FROM tbl_hwImport WHERE fldIndex=%s', hwData_fldIndex')
+    cursor.execute('SELECT' * FROM tblHW WHERE fldIndex=%s', tblHW_fldIndex')
 1   result = cursor.fetchall()
     return render_template('view.html', title='View Form', height=result[0])
 

@@ -1,0 +1,19 @@
+{%  extends "layout.html" %}
+{%  block content %}
+<form action="/edit{{ tblHW.fldIndex }}" method="post">
+    <div class="row">
+        <div class="col">
+            <label for="fldIndex">Index</label>
+            <input id="fldIndex" type="number" class="form-control" placeholder="Index" name="fldIndex" value="{{tblHW.Index}}">
+        </div>
+        <div class="col">
+            <label for="fldHeight(Inches)">Height(Inches)</label>
+            <input id="fldHeight(Inches)" type="number" class="form-control" placeholder="Height(Inches)" name="fldHeight(Inches)" value="{{tblHW.Height(Inches)}}">
+        </div>
+        <div class="col">
+            <label for="fldWeight(Pounds)">Weight(Pounds)</label>
+            <input id="fldWeight(Pounds)" type="number" class="form-control" placeholder="Weight(Pounds)" name="fldIndex" value="{{tblHW.Index}}">
+        </div>
+        </div>
+    </div>
+</form>
